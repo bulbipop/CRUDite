@@ -1,0 +1,86 @@
+{% load static %}
+
+<!doctype html>
+<html lang='fr'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#318eee">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'external/bootstrap.min.css' %}">
+    {% block style %}{% endblock style %}
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+  {% if not view.is_popup %}
+    <div class="row" id="headerRow">
+      <div class="col-md-2">
+        <a href="/">
+          <img src="{%  static 'images/logo.png' %}" id="headerLogo" width="65%" margin-left: '10px' />
+        </a>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <h3 class="titre">Titre</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-3">
+            <h5 class="sous-titre">Sous-titre</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <br />
+        <section id="login">
+          <div>Bonjour,
+            <a href="/utilisateur/update/{{ user.id }}"> {{ user.get_username }} !</a>
+          </div>
+        <div>Notifications:
+        <a class="btn" data-toggle="modal" href="#notifications" aria-expanded="false" aria-controls="help">
+          <span class="badge badge-secondary">0</span>
+        </a></div>
+        <div><a href="/logout">Se déconnecter</a></div>
+        </section>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+
+
+
+      </div>
+    </nav>
+    <br />
+
+    <!-- Modal des notifications -->
+    <div class="modal fade" id="notifications" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Pas de notification
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+    <main class="container-fluid">
+        {% block content %}{% endblock content %}
+    </main>
+    <script src="{% static 'external/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'external/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'main.js' %}" async></script>
+    {% block script %}{% endblock script %}
+  </body>
+</html>

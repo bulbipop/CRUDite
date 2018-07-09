@@ -1,0 +1,25 @@
+.form-group {
+    margin: 0.2rem;
+}
+
+.actions {
+    width: 100px;
+}
+
+/* table.table thead th.orderable::after {
+    content: " (↑↓)";
+    color: blue;
+    font-size: 8pt;
+} */
+
+table.table thead th.asc::after {
+    content: " (↓)";
+    color: blue;
+    font-size: 8pt;
+}
+
+table.table thead th.desc::after {
+    content: " (↑)";
+    color: blue;
+    font-size: 8pt;
+}

@@ -1,0 +1,16 @@
+input:required, select:required {
+  border: 1px solid black;
+}
+
+.select2-container {
+  width: 98% !important;
+}
+.select2-selection, .select2-selection__arrow {
+  height: 38px !important;
+}
+.select2-selection {
+  padding: .2rem .2rem !important;
+}
+.select2-selection__placeholder {
+  color: #6c757d !important;
+}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block title %}Erreur{% endblock title %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'index.css' %}" media="none" onload="if(media!='all')media='all'">
+{% endblock style %}
+
+{% block content %}
+	Vous n'avez pas les droits pour accéder à cette page.
+{% endblock content %}
+
+{% block script %}
+  {{ form.media }}
+{% endblock script %}

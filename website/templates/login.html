@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'login.css' %}" media="none" onload="if(media!='all')media='all'">
+{% endblock style %}
+
+{% block title %}
+  Connexion
+{% endblock title %}
+
+{% block content %}
+    <hgroup class="title">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Titre</h1>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <img src="{% static 'images/logo.png' %}" id="Logo" alt="Logo" />
+            </div>
+        </div>
+    </hgroup>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <h2>Sous-titre</h2>
+        </div>
+    </div>
+    <div id="content-container" class="container p-none">
+        <div class="lgn-container col-lg-12">
+            <form id="login-form" method="post"
+                  action="{% url 'login' %}">
+                {% csrf_token %}
+                <table class="table">
+                    <tr>
+                        <td><label for="id_username">Nom d'utilisateur</label></td>
+                        <td><input id="id_username" name="username"
+                                   type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_password">Mot de passe</label></td>
+                        <td><input id="id_password" name="password" autocomplete="current-password"
+                                   type="password" class="form-control"></td>
+                    </tr>
+                </table>
+                {% if form.errors %}
+                    <p class=" label label-danger">
+                        Mauvais identifiants
+                    </p>
+                {% endif %}
+
+                <input type="submit" value="Se connecter"
+                       class="btn btn-primary pull-right" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </div>
+{% endblock content %}

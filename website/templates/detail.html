@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tags %}
+{% block title %}Détails{% endblock title %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="{% static 'CRUD.css' %}">
+{% endblock style %}
+
+{% block content %}
+<form>
+{% for field_name in view.field_names %}
+    <div class="form-group row">
+        <label class="col-md-3 col-form-label">
+            {% get_field_label object field_name %}
+        </label>
+        <div class="col-md-9">
+            <input
+                type="text"
+                readonly
+                class="form-control"
+                value="{% get_field_value object field_name %}">
+        </div>
+    </div>
+{% endfor %}
+</form>
+<a href='./print/' class='btn btn-outline-info'>Imprimer</a>
+<a href='./update/' class='btn btn-outline-primary'>Éditer</a>
+<a href='.' class='btn btn-outline-secondary'>Annuler</a>
+<a href='./delete/' class='btn btn-outline-danger delete'>Supprimer</a>
+{% endblock content %}

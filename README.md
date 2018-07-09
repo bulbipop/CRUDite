@@ -1,1 +1,1 @@
-CRUDité
+bootstrap Django pour avoir des interfaces fonctionnelles générées automatiquement à partir des modèles.

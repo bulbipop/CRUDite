@@ -1,0 +1,18 @@
+<div class="input-group date" data-target-input="nearest">
+    <div
+      class="input-group-append"
+      data-target="#id_{{ widget.name }}"
+      data-toggle="datetimepicker">
+      <div class="input-group-text">
+          <b class="fa">📅</b>
+      </div>
+    </div>
+    <input
+      type="text"
+      class="form-control datetimepicker datetimepicker-input"
+      name="{{ widget.name }}"
+      value="{{ widget.value }}"
+      data-toggle="datetimepicker"
+      data-target="#id_{{ widget.name }}"
+      {% include "django/forms/widgets/attrs.html" %}>
+</div>
